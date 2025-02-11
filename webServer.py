@@ -43,7 +43,6 @@ def webServer(port=13331):
             outputdata+= b"\r\n"
 
             
-            f.close() 
     # Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
             # Fill in end
