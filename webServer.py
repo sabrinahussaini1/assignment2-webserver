@@ -37,7 +37,7 @@ def webServer(port=13331):
 
                      # Content-Type is an example on how to send a header as bytes. There are more!
             outputdata= b"HTTP/1.1 200 OK\r\n"
-            outputdata+=b"Content-Type: text/html; charset=UTF\r\n\r\n"
+            outputdata+=b"Content-Type: text/html; charset=UTF\r\n"
             outputdata+=b"Server: PythonHTTPServer\r\n"
             outputdata+=b"Connection: close\r\n"
             outputdata+= b"\r\n"
@@ -65,7 +65,6 @@ def webServer(port=13331):
         except Exception as e:
             invalid_message = b"HTTP/1.1 404 Not Found\r\n"
             invalid_message += b"Content-Type: text/html; charset=UTF-8\r\n\r\n"
-           
             invalid_message += b"<html><body><h1>404 Not Found</h1></body></html>"
 
 
@@ -76,7 +75,6 @@ def webServer(port=13331):
             connectionSocket.sendall(invalid_message)
             connectionSocket.close()
     # Fill in end
-        connectionSocket.close()
     # Commenting out the below (some use it for local testing). It is not required for Gradescope, and some students have moved it erroneously in the While loop.
     # DO NOT PLACE ANYWHERE ELSE AND DO NOT UNCOMMENT WHEN SUBMITTING, YOU ARE GONNA HAVE A BAD TIME
     #serverSocket.close()
