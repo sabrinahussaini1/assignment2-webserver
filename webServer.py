@@ -65,11 +65,12 @@ def webServer(port=13331):
             invalid_message += b"Server: PythonHTTPServer\r\n"
             invalid_message += b"Connection: close\r\n"
             invalid_message = b"\r\n"
+            invalid_message = b"<html><body><h1>404 Not Found</h1></body></html>"
     # Fill in end
 
     # Close client socket
     # Fill in start
-    connectionSocket.send(invalid_message)
+    connectionSocket.sendall(invalid_message)
     connectionSocket.close()
     # Fill in end
 
