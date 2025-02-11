@@ -24,7 +24,7 @@ def webServer(port=13331):
         connectionSocket, addr =  serverSocket.accept()
 
         try:
-            message = connectionSocket.recv(1024) # Fill in start -a client is sending you a message   #Fill in end
+            message = connectionSocket.recv(1024).decode() # Fill in start -a client is sending you a message   #Fill in end
             filename = message.split()[1]
 
             # opens the client requested file.
@@ -42,18 +42,19 @@ def webServer(port=13331):
             outputdata+=b"Connection: close\r\n"
             outputdata+= b"\r\n"
 
-            connectionSocket.sendall(outputdata)
-
+            
+            f.close() 
     # Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
             # Fill in end
 
             for i in f:  # for line in file
-                contents = f.read()
-                connectionSocket.sendall(contents)
+                outputdata += i
+            f.close()
+            connectionSocket.sendall(outputdata)
 
             # Fill in start - append your html file contents #Fill in end
-            f.close()
+        
             # Send the content of the requested file to the client (don't forget the headers you created)!
             # Send everything as one send command, do not send one line/item at a time!
 
