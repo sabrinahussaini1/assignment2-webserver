@@ -65,10 +65,10 @@ def webServer(port=13331):
         except Exception as e:
             invalid_message = b"HTTP/1.1 404 Not Found\r\n"
             invalid_message += b"Content-Type: text/html; charset=UTF-8\r\n"
-            invalid_message += b"Server: PythonHTTPServer\r\n"
-            invalid_message += b"Connection: close\r\n"
-            invalid_message += b"\r\n"
-            invalid_message += b"<html><body><h1>404 Not Found</h1><p>The file not found.</p></body></html>"
+            #invalid_message += b"Server: PythonHTTPServer\r\n"
+            #invalid_message += b"Connection: close\r\n"
+            #invalid_message += b"\r\n"
+            invalid_message += b"<html><body><h1>404 Not Found</h1></body></html>"
 
 
     # Fill in end
