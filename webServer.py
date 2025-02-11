@@ -66,7 +66,7 @@ def webServer(port=13331):
             invalid_message += b"Content-Type: text/html; charset=UTF-8\r\n"
             invalid_message += b"Server: PythonHTTPServer\r\n"
             invalid_message += b"Connection: close\r\n"
-            invalid_message += b"<html><body><h1>404 Not Found</h1></body></html>"
+            invalid_message += b"<html><body><h1>404 Not Found</h1><p>The file not found.</p></body></html>"
             invalid_message += b"\r\n"
 
     # Fill in end
