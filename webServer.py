@@ -67,15 +67,9 @@ def webServer(port=13331):
             invalid_message += b"Content-Type: text/html; charset=UTF-8\r\n"
             invalid_message += b"<html><body><h1>404 Not Found</h1></body></html>"
 
-
-    # Fill in end
-
-    # Close client socket
-    # Fill in start
             connectionSocket.sendall(invalid_message)
             connectionSocket.close()
     # Fill in end
-        connectionSocket.close()
     # Commenting out the below (some use it for local testing). It is not required for Gradescope, and some students have moved it erroneously in the While loop.
     # DO NOT PLACE ANYWHERE ELSE AND DO NOT UNCOMMENT WHEN SUBMITTING, YOU ARE GONNA HAVE A BAD TIME
     #serverSocket.close()
