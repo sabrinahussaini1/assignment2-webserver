@@ -41,13 +41,15 @@ def webServer(port=13331):
             outputdata+=b"Connection: close\r\n"
             outputdata+= b"\r\n"
 
-            connectionSocket.send(outputdata)
+            connectionSocket.sendall(outputdata)
+
     # Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
             # Fill in end
 
             for i in f:  # for line in file
-                connectionSocket.send(i)
+                connectionSocket.sendall(i)
+
             # Fill in start - append your html file contents #Fill in end
 
             # Send the content of the requested file to the client (don't forget the headers you created)!
@@ -70,10 +72,10 @@ def webServer(port=13331):
 
     # Close client socket
     # Fill in start
-    connectionSocket.sendall(invalid_message)
-    connectionSocket.close()
+            connectionSocket.sendall(invalid_message)
+            connectionSocket.close()
     # Fill in end
-
+        connectionSocket.close()
     # Commenting out the below (some use it for local testing). It is not required for Gradescope, and some students have moved it erroneously in the While loop.
     # DO NOT PLACE ANYWHERE ELSE AND DO NOT UNCOMMENT WHEN SUBMITTING, YOU ARE GONNA HAVE A BAD TIME
     #serverSocket.close()
