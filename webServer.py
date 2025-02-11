@@ -1,4 +1,4 @@
-# import socket module
+d# import socket module
 from socket import *
 # In order to terminate the program
 import sys
@@ -67,7 +67,7 @@ def webServer(port=13331):
             invalid_message += b"Server: PythonHTTPServer\r\n"
             invalid_message += b"Connection: close\r\n"
             invalid_message += b"\r\n"
-            invalid_message += b"<html><body><h1>404 Not Found</h1><p>The file not found.</p></body></html>"
+            invalid_message += b"<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n"
 
 
     # Fill in end
